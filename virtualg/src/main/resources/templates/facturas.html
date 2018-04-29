@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Facturas</h2>
+<table class="table table-condensed">
+    <thead>
+    <tr>
+        <th>NOMBRE</th>
+        <th>APELLIDOS</th>
+        <th>DNI</th>
+        <th>POBLACIÓN</th>
+        <th>CP</th>
+        <th>TLF</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="factura : ${facturas}">
+        <td th:text="${factura.totalVenta}"></td>
+        <td th:text="${factura.importe_beneficio}"></td>
+        <td th:if="${factura.pagado==1}">YES</td>
+        <td th:if="${factura.pagado==0}">NO</td>
+        <td th:text="${factura.cliente.nombre}"></td>
+        <td th:text="${factura.fabrica.nombre}"></td>
+        <td><button type="button" class="btn btn-warning" class="glyphicon glyphicon-edit">MODIFICAR</button></td>
+        <td><button type="button" class="btn btn-danger" class="glyphicon glyphicon-remove">ELIMINAR</button></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

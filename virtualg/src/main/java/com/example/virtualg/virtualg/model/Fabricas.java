@@ -33,6 +33,11 @@ public class Fabricas {
 
     }
 
+    public Fabricas(int id) {
+        this.id = id;
+
+    }
+
     public Fabricas(String nombre, String propietario, String dni, String poblacion, int cd, int tlf, int comision) {
         this.nombre = nombre;
         this.propietario = propietario;

@@ -29,6 +29,16 @@ public class Clientes {
     public Clientes(){
 
     }
+
+    public Clientes(int id, String nombre, String apellidos, String dni, String poblacion, String cd, String tlf) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.poblacion = poblacion;
+        this.cd = cd;
+        this.tlf = tlf;
+    }
     public Clientes(String nombre, String apellidos, String dni, String poblacion, String cd, String tlf) {
         this.nombre = nombre;
         this.apellidos = apellidos;
