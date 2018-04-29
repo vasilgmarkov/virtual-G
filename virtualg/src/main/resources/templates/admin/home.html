@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Admin Page</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">VirtualG</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">ALTAS</a></li>
+			<li><a th:href="@{/admin/clientes}">CLIENTES</a></li>
+			<li><a href="#">FAMBRICAS</a></li>
+			<li><a href="#">MODIFICAR</a></li>
+			<li><a href="#">FACTURAS</a></li>
+			<li><a href="#">PAGADAS</a></li>
+			<li><a href="#">PENDIETE DE PAGO</a></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><form class="navbar-form navbar-left" action="/action_page.php">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search" name="search">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</form></li>
+			<li><a th:href="@{/logout}"><span class="glyphicon glyphicon-log-out"></span> LogOut</a>
+
+			</li>
+		</ul>
+	</div>
+</nav>
+	<div class="container">
+
+
+		<h1>Product list</h1>
+
+		<table>
+			<tr>
+				<th>NAME</th>
+				<th>PRICE</th>
+				<th>IN STOCK</th>
+			</tr>
+			<tr th:each="prod : ${prods}">
+				<td th:text="${prod.name}">Onions</td>
+				<td th:text="${prod.price}">2.41</td>
+				<td th:text="${prod.inStock}? #{true} : #{false}">yes</td>
+			</tr>
+		</table>
+
+
+		<div class="panel-group" style="margin-top:40px">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<span th:utext="${userName}"></span>
+				</div>
+				<div class="panel-body">
+					<img th:src="@{/images/beer.jpg}" class="img-responsive center-block" width="400" height="400" alt="Beer" /> 
+				</div>
+				<p class="admin-message-text text-center" th:utext="${adminMessage}"></p>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>
